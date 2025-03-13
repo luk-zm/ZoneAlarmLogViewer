@@ -1,0 +1,9 @@
+ZoneAlarm Logging Client v6.1.744.001
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+ACCESS,2006/04/27,12:54:40 +2:00 GMT,Generic Host Process for Win32 Services was blocked from accepting a connection from the Internet (192.168.34.197:Port 1688).,N/A,N/A

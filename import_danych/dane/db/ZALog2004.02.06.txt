@@ -1,0 +1,7 @@
+ZoneAlarm Logging Client v4.0.146.029
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport
+FWIN,2004/02/06,14:43:20 +1:00 GMT,212.111.2.201:0,192.168.31.2:0,ICMP (type:8/subtype:0)
+PE,2004/02/07,13:29:42 +1:00 GMT,Polecenie TCP/IP Ping,192.168.11.1:53,N/A
+ACCESS,2004/02/07,13:29:44 +1:00 GMT,Polecenie TCP/IP Ping was temporarily blocked from connecting to the Internet (192.168.11.1:DNS).,N/A,N/A
+PE,2004/02/07,13:30:00 +1:00 GMT,Polecenie TCP/IP Ping,192.168.11.1:53,N/A

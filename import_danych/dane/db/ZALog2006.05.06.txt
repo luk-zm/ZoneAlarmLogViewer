@@ -1,0 +1,9 @@
+ZoneAlarm Logging Client v6.1.744.001
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+OSFW,2006/05/08,09:15:48 +2:00 GMT,UNKNOWN(0),Microsoft Office Outlook,E:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\OUTLOOK.EXE,PROCESS,SPAWNPROCESS,SRC,E:\PROGRAM FILES\INTERNET EXPLORER\IEXPLORE.EXE,9101a20d-b15019f4-f12e0d9d-7f3836cb,6a1ad-26eb817b-df59dff8

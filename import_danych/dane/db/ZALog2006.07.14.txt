@@ -1,0 +1,10 @@
+ZoneAlarm Logging Client v6.5.722.000
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+FWIN,2006/07/14,12:12:02 +2:00 GMT,192.168.34.154:4398,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/07/14,12:13:24 +2:00 GMT,192.168.34.28:3582,192.168.31.5:445,TCP (flags:S)

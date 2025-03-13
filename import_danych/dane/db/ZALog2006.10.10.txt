@@ -1,0 +1,33 @@
+ZoneAlarm Logging Client v6.5.737.000
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+ACCESS,2006/10/10,11:35:02 +2:00 GMT,Aplikacja logowania systemu Windows NT was blocked from connecting to the local zone (127.0.0.1:Port 1111).,N/A,N/A
+OSFW,2006/10/10,11:37:32 +2:00 GMT,UNKNOWN(0),Uruchamia plik DLL jako aplikacjê,E:\WINNT\system32\rundll32.exe,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\explorer.exe,cb2fd5e6-e5fac5c3-f6688e1d-047b7943,8e1d-047b7943,-4937968e-527ea736-e4e2a9f1,2a9f1
+ACCESS,2006/10/10,11:50:36 +2:00 GMT,Aplikacja logowania systemu Windows NT was blocked from connecting to the local zone (127.0.0.1:Port 1111).,N/A,N/A
+ACCESS,2006/10/10,14:08:12 +2:00 GMT,Aplikacja logowania systemu Windows NT was blocked from connecting to the local zone (127.0.0.1:Port 1026).,N/A,N/A
+FWIN,2006/10/10,14:13:40 +2:00 GMT,192.168.33.219:3621,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/10/10,14:18:32 +2:00 GMT,192.168.33.219:4462,192.168.31.5:135,TCP (flags:S)
+ACCESS,2006/10/11,10:27:34 +2:00 GMT,Aplikacja logowania systemu Windows NT was blocked from connecting to the local zone (127.0.0.1:Port 1026).,N/A,N/A
+FWIN,2006/10/11,10:37:16 +2:00 GMT,192.168.26.53:1085,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/10/11,10:39:40 +2:00 GMT,192.168.26.53:3405,192.168.31.5:135,TCP (flags:S)
+PE,2006/10/11,10:42:50 +2:00 GMT,Zone Labs Client,E:\Program Files\Zone Labs\ZoneAlarm\zlclient.exe,84.53.170.70:53,N/A
+PE,2006/10/11,10:42:50 +2:00 GMT,Zone Labs Client,E:\Program Files\Zone Labs\ZoneAlarm\zlclient.exe,80.72.40.80:53,N/A
+ZLUpdate,2006/10/11,10:43:00 +2:00 GMT,,,Auto
+ZLUpdate,2006/10/11,10:43:04 +2:00 GMT,,,Auto
+FWIN,2006/10/11,10:53:44 +2:00 GMT,192.168.26.53:1530,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/10/11,10:55:58 +2:00 GMT,192.168.42.174:4033,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/10/11,10:55:58 +2:00 GMT,192.168.26.53:3676,192.168.31.5:135,TCP (flags:S)
+FWIN,2006/10/11,10:59:12 +2:00 GMT,65.114.168.238:0,192.168.31.5:0,ICMP (type:8/subtype:0)
+FWIN,2006/10/11,11:00:36 +2:00 GMT,192.168.42.241:2935,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/10/11,11:01:52 +2:00 GMT,192.168.42.241:4161,192.168.31.5:135,TCP (flags:S)
+FWIN,2006/10/11,11:15:30 +2:00 GMT,212.59.152.38:42071,192.168.31.5:10000,TCP (flags:S)
+FWIN,2006/10/11,11:16:54 +2:00 GMT,192.168.33.219:3227,192.168.31.5:445,TCP (flags:S)
+FWIN,2006/10/11,11:16:54 +2:00 GMT,192.168.33.219:3229,192.168.31.5:135,TCP (flags:S)
+FWIN,2006/10/11,11:27:16 +2:00 GMT,192.168.18.73:3880,192.168.31.5:445,TCP (flags:S)
+ACCESS,2006/10/11,11:28:08 +2:00 GMT,Aplikacja logowania systemu Windows NT was blocked from connecting to the Internet (217.74.66.84:DNS).,N/A,N/A
+FWIN,2006/10/11,11:29:20 +2:00 GMT,192.168.18.73:2099,192.168.31.5:135,TCP (flags:S)

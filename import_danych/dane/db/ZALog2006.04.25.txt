@@ -1,0 +1,19 @@
+ZoneAlarm Logging Client v6.1.744.001
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+OSFW,2006/04/26,08:59:28 +2:00 GMT,UNKNOWN(0),Microsoft Office Outlook,E:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\OUTLOOK.EXE,PROCESS,SPAWNPROCESS,SRC,E:\PROGRAM FILES\INTERNET EXPLORER\IEXPLORE.EXE,9101a20d-b15019f4-f12e0d9d-7f3836cb,6a1ad-26eb817b-df59dff8
+ACCESS,2006/04/26,09:25:26 +2:00 GMT,Generic Host Process for Win32 Services was blocked from accepting a connection from the Internet (192.168.34.197:Port 2927).,N/A,N/A
+ACCESS,2006/04/26,09:37:40 +2:00 GMT,Generic Host Process for Win32 Services was blocked from accepting a connection from the Internet (192.168.34.197:Port 4847).,N/A,N/A
+OSFW,2006/04/26,11:25:32 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE
+OSFW,2006/04/26,11:26:30 +2:00 GMT,UNKNOWN(0),Microsoft Office Outlook,E:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\OUTLOOK.EXE,PROCESS,SPAWNPROCESS,SRC,E:\PROGRAM FILES\INTERNET EXPLORER\IEXPLORE.EXE,9101a20d-b15019f4-f12e0d9d-7f3836cb,6a1ad-26eb817b-df59dff8
+OSFW,2006/04/26,11:43:06 +2:00 GMT,UNKNOWN(0),aspnet_wp.exe,E:\WINNT\MICROSOFT.NET\FRAMEWORK\V2.0.50727\ASPNET_WP.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\MICROSOFT.NET\FRAMEWORK\V2.0.50727\csc.exe,681df5ed-b7579bdd-0961e72c-fab46d26,9-6d0dceb2-70e03fb7
+PE,2006/04/26,11:45:46 +2:00 GMT,aspnet_wp.exe,80.72.40.78:53,N/A
+PE,2006/04/26,11:45:46 +2:00 GMT,aspnet_wp.exe,80.72.40.78:53,N/A
+PE,2006/04/26,11:52:48 +2:00 GMT,Microsoft Visual Web Developer 2005 Express Edition,255.255.255.255:1434,N/A
+ACCESS,2006/04/26,11:56:12 +2:00 GMT,Generic Host Process for Win32 Services was blocked from accepting a connection from the Internet (192.168.34.197:Port 3443).,N/A,N/A
+OSFW,2006/04/26,14:11:06 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE

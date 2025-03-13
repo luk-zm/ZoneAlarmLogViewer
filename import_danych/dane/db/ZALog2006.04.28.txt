@@ -1,0 +1,17 @@
+ZoneAlarm Logging Client v6.1.744.001
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+OSFW,2006/04/29,11:58:48 +2:00 GMT,UNKNOWN(0),Microsoft Visual Web Developer 2005 Express Edition,E:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 8\Common7\IDE\VWDEXPRESS.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\MICROSOFT.NET\FRAMEWORK\V2.0.50727\csc.exe,681df5ed-b7579bdd-0961e72c-fab46d26,9-6d0dceb2-70e03fb7
+OSFW,2006/04/29,12:58:38 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE
+OSFW,2006/04/29,13:35:00 +2:00 GMT,UNKNOWN(0),Microsoft Visual Web Developer 2005 Express Edition,E:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 8\Common7\IDE\VWDEXPRESS.EXE,PROCESS,OPENPROCESS,SRC,E:\WINNT\Explorer.EXE
+OSFW,2006/04/29,13:35:12 +2:00 GMT,UNKNOWN(0),Corel PHOTO-PAINT(R),E:\PROGRAM FILES\Corel\GRAPHICS9\Programs\photopnt.exe,PROCESS,OPENPROCESS,SRC,E:\WINNT\Explorer.EXE
+OSFW,2006/04/29,13:54:54 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE
+OSFW,2006/04/29,14:51:54 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE
+OSFW,2006/04/29,14:53:14 +2:00 GMT,UNKNOWN(0),Microsoft Visual Web Developer 2005 Express Edition,E:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 8\Common7\IDE\VWDEXPRESS.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\MICROSOFT.NET\FRAMEWORK\V2.0.50727\csc.exe,681df5ed-b7579bdd-0961e72c-fab46d26,9-6d0dceb2-70e03fb7
+PE,2006/04/29,15:51:28 +2:00 GMT,Microsoft Visual Web Developer 2005 Express Edition,80.72.40.80:53,N/A
+OSFW,2006/04/29,17:26:36 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE

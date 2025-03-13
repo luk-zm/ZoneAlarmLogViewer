@@ -1,0 +1,272 @@
+ZoneAlarm Logging Client v5.5.062.000
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (security)
+type,date,time,virus name,file name,mode,e-mail id (antivirus)
+type,date,time,source,destination,action,service (IM security)
+FWIN,2005/07/03,10:37:02 +2:00 GMT,202.172.34.186:0,192.168.31.2:0,ICMP (type:8/subtype:0)
+FWIN,2005/07/03,10:52:56 +2:00 GMT,194.170.13.219:3058,192.168.31.2:3306,TCP (flags:S)
+FWIN,2005/07/03,11:01:50 +2:00 GMT,24.80.5.191:30576,192.168.31.2:1080,TCP (flags:S)
+FWIN,2005/07/03,11:46:42 +2:00 GMT,61.152.158.123:37910,192.168.31.2:1027,UDP
+FWIN,2005/07/03,11:54:10 +2:00 GMT,81.195.171.210:3327,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/03,12:04:58 +2:00 GMT,218.66.104.140:46511,192.168.31.2:1027,UDP
+FWIN,2005/07/03,12:04:58 +2:00 GMT,218.66.104.140:46511,192.168.31.2:1026,UDP
+FWIN,2005/07/03,12:28:34 +2:00 GMT,218.247.179.238:4456,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/03,12:44:06 +2:00 GMT,83.16.51.94:3531,192.168.31.2:15118,TCP (flags:S)
+FWIN,2005/07/03,12:49:52 +2:00 GMT,61.172.246.74:54799,192.168.31.2:1026,UDP
+FWIN,2005/07/03,12:49:52 +2:00 GMT,61.172.246.74:54799,192.168.31.2:1027,UDP
+FWIN,2005/07/03,13:35:48 +2:00 GMT,62.75.216.10:22146,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/03,13:41:48 +2:00 GMT,61.152.158.123:37910,192.168.31.2:1026,UDP
+FWIN,2005/07/03,13:50:12 +2:00 GMT,61.232.9.60:6000,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/03,14:11:18 +2:00 GMT,61.102.10.188:3359,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/03,14:30:32 +2:00 GMT,218.66.104.140:46511,192.168.31.2:1026,UDP
+FWIN,2005/07/03,15:18:06 +2:00 GMT,211.47.40.130:2009,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/03,15:34:28 +2:00 GMT,143.225.246.25:60095,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/03,15:35:34 +2:00 GMT,61.172.246.74:54799,192.168.31.2:1026,UDP
+FWIN,2005/07/03,15:37:04 +2:00 GMT,61.152.158.123:37910,192.168.31.2:1027,UDP
+FWIN,2005/07/03,15:51:40 +2:00 GMT,192.168.34.13:3191,192.168.31.2:445,TCP (flags:S)
+FWIN,2005/07/03,16:06:00 +2:00 GMT,192.168.34.13:1736,192.168.31.2:445,TCP (flags:S)
+FWIN,2005/07/03,16:08:22 +2:00 GMT,202.186.124.114:3809,192.168.31.2:10000,TCP (flags:S)
+FWIN,2005/07/03,16:29:22 +2:00 GMT,212.179.182.76:62199,192.168.31.2:15118,TCP (flags:S)
+FWIN,2005/07/03,16:47:34 +2:00 GMT,212.106.213.189:3227,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/03,16:55:58 +2:00 GMT,218.66.104.140:46511,192.168.31.2:1026,UDP
+FWIN,2005/07/03,17:02:40 +2:00 GMT,212.106.208.61:1493,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/03,17:23:30 +2:00 GMT,129.118.18.41:15742,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/03,17:30:06 +2:00 GMT,192.168.34.13:3305,192.168.31.2:445,TCP (flags:S)
+FWIN,2005/07/03,17:32:30 +2:00 GMT,61.152.158.123:37910,192.168.31.2:1027,UDP
+FWIN,2005/07/03,18:13:28 +2:00 GMT,192.168.34.13:3224,192.168.31.2:445,TCP (flags:S)
+FWIN,2005/07/03,18:19:30 +2:00 GMT,212.24.225.130:51316,192.168.31.2:6129,TCP (flags:S)
+FWIN,2005/07/03,18:20:50 +2:00 GMT,61.172.246.74:54799,192.168.31.2:1027,UDP
+FWIN,2005/07/03,18:31:26 +2:00 GMT,212.106.250.15:2453,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/03,18:35:26 +2:00 GMT,221.136.241.158:3861,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/03,19:13:40 +2:00 GMT,83.132.249.7:0,192.168.31.2:0,ICMP (type:8/subtype:0)
+FWIN,2005/07/03,19:21:10 +2:00 GMT,70.85.176.218:50641,192.168.31.2:1026,UDP
+FWIN,2005/07/03,19:21:10 +2:00 GMT,70.85.176.218:50641,192.168.31.2:1027,UDP
+FWIN,2005/07/03,19:21:30 +2:00 GMT,218.66.104.140:46511,192.168.31.2:1026,UDP
+FWIN,2005/07/03,19:21:30 +2:00 GMT,218.66.104.140:46511,192.168.31.2:1027,UDP
+FWIN,2005/07/03,19:27:34 +2:00 GMT,61.152.158.123:37962,192.168.31.2:1026,UDP
+FWIN,2005/07/03,19:27:34 +2:00 GMT,61.152.158.123:37962,192.168.31.2:1027,UDP
+FWIN,2005/07/03,19:29:08 +2:00 GMT,61.152.158.151:37793,192.168.31.2:1026,UDP
+FWIN,2005/07/03,19:29:08 +2:00 GMT,61.152.158.151:37795,192.168.31.2:1027,UDP
+FWIN,2005/07/03,20:08:16 +2:00 GMT,128.121.246.58:1149,192.168.31.2:2103,TCP (flags:S)
+FWIN,2005/07/03,20:22:40 +2:00 GMT,195.204.146.75:1864,192.168.31.2:10000,TCP (flags:S)
+FWIN,2005/07/03,21:04:22 +2:00 GMT,61.172.246.74:54823,192.168.31.2:1026,UDP
+FWIN,2005/07/03,21:46:18 +2:00 GMT,82.49.99.226:3111,192.168.31.2:6667,TCP (flags:S)
+FWIN,2005/07/03,22:24:56 +2:00 GMT,63.245.22.54:4159,192.168.31.2:2103,TCP (flags:S)
+FWIN,2005/07/03,22:33:46 +2:00 GMT,213.180.63.50:53207,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/03,22:53:50 +2:00 GMT,84.249.143.114:44789,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/03,23:17:20 +2:00 GMT,61.152.158.123:37964,192.168.31.2:1027,UDP
+FWIN,2005/07/03,23:46:04 +2:00 GMT,61.172.246.74:54823,192.168.31.2:1027,UDP
+FWIN,2005/07/04,00:12:54 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1026,UDP
+FWIN,2005/07/04,00:12:54 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1027,UDP
+FWIN,2005/07/04,00:21:44 +2:00 GMT,69.16.192.58:56389,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/04,00:34:24 +2:00 GMT,212.106.242.149:3095,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/04,00:38:24 +2:00 GMT,216.183.108.100:11624,192.168.31.2:33436,UDP
+FWIN,2005/07/04,00:57:34 +2:00 GMT,212.106.207.232:3585,192.168.31.2:1433,TCP (flags:S)
+PE,2005/07/04,01:17:48 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,01:17:48 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:17:50 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,01:17:50 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:17:52 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,01:17:52 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:17:54 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,01:17:54 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:17:54 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,01:17:54 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:17:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,01:17:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,01:18:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,01:18:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,01:18:18 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:18:20 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,01:18:22 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,01:18:22 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:18:22 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,01:18:22 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:18:26 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,01:18:26 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,01:29:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,01:29:06 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,01:29:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,01:29:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+FWIN,2005/07/04,01:53:26 +2:00 GMT,66.160.191.67:51769,192.168.31.2:1026,UDP
+FWIN,2005/07/04,01:57:24 +2:00 GMT,218.24.201.24:6000,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/04,02:09:38 +2:00 GMT,211.47.128.143:4093,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/04,02:10:18 +2:00 GMT,62.117.78.59:29019,192.168.31.2:10000,TCP (flags:S)
+FWIN,2005/07/04,02:27:00 +2:00 GMT,61.172.246.74:54823,192.168.31.2:1026,UDP
+FWIN,2005/07/04,02:38:48 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1027,UDP
+FWIN,2005/07/04,02:56:02 +2:00 GMT,211.136.114.147:1569,192.168.31.2:1433,TCP (flags:S)
+FWIN,2005/07/04,03:06:56 +2:00 GMT,61.152.158.123:37971,192.168.31.2:1026,UDP
+FWIN,2005/07/04,03:27:22 +2:00 GMT,70.85.176.218:50656,192.168.31.2:1026,UDP
+FWIN,2005/07/04,03:27:22 +2:00 GMT,70.85.176.218:50656,192.168.31.2:1027,UDP
+FWIN,2005/07/04,03:42:06 +2:00 GMT,219.153.10.185:4592,192.168.31.2:1080,TCP (flags:S)
+FWIN,2005/07/04,04:07:08 +2:00 GMT,66.160.191.67:41267,192.168.31.2:1026,UDP
+FWIN,2005/07/04,05:00:46 +2:00 GMT,66.160.191.66:43158,192.168.31.2:1026,UDP
+FWIN,2005/07/04,05:01:50 +2:00 GMT,61.152.158.123:38001,192.168.31.2:1026,UDP
+FWIN,2005/07/04,05:04:36 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1026,UDP
+FWIN,2005/07/04,05:04:36 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1027,UDP
+FWIN,2005/07/04,05:09:56 +2:00 GMT,61.172.246.74:54823,192.168.31.2:1027,UDP
+FWIN,2005/07/04,05:20:12 +2:00 GMT,202.73.37.22:27763,192.168.31.2:22,TCP (flags:S)
+FWIN,2005/07/04,05:25:56 +2:00 GMT,70.85.176.218:50658,192.168.31.2:1027,UDP
+FWIN,2005/07/04,05:25:56 +2:00 GMT,70.85.176.218:50658,192.168.31.2:1026,UDP
+PE,2005/07/04,05:30:38 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:30:38 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:30:40 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:30:40 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:30:42 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:30:42 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:30:44 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:30:44 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:30:44 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:30:44 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:30:48 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:30:48 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:30:56 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:30:56 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:30:56 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:30:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:00 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:31:00 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:00 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:31:00 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:04 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:31:04 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:12 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:14 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:31:14 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:16 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:31:18 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:31:18 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:22 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:31:22 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:40 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:42 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:31:42 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:44 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:46 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:31:46 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:46 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:31:46 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:31:50 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:31:50 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:31:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:31:58 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:00 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:02 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:32:02 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:02 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:02 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:32:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:14 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:16 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:16 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:20 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:32:20 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:20 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:20 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:24 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:32:24 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:32 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:32 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:32 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:34 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:36 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:32:36 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:36 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:36 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:40 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:32:40 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:48 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:50 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:50 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:52 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:32:54 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:32:54 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:54 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:32:54 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:32:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:32:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:06 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:33:06 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:08 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:10 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:33:10 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:10 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:33:10 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:14 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:33:14 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:22 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:24 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:33:24 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:26 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:28 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:33:28 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:28 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:33:28 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:32 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:33:32 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:50 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:33:52 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:33:52 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:54 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+FWIN,2005/07/04,05:33:54 +2:00 GMT,202.105.18.234:1036,192.168.31.2:1434,UDP
+PE,2005/07/04,05:33:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:33:58 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:33:58 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:33:58 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:02 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:34:02 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:10 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:10 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:34:10 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:12 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:14 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:34:14 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:14 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:34:14 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:34:18 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:26 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:28 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:34:28 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:30 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:32 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:34:32 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:32 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:34:32 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:36 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:34:36 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:44 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:44 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:34:44 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for sending data to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:46 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+PE,2005/07/04,05:34:48 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+ACCESS,2005/07/04,05:34:48 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.11.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:48 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+ACCESS,2005/07/04,05:34:48 +2:00 GMT,Us³ugi i aplikacja Kontroler was unable to obtain permission for connecting to the Internet (192.168.3.1:DNS); access was denied.,N/A,N/A
+PE,2005/07/04,05:34:52 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+PE,2005/07/04,05:34:52 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.3.1:53,N/A
+FWIN,2005/07/04,05:37:42 +2:00 GMT,65.125.135.162:1032,192.168.31.2:2100,TCP (flags:S)
+FWIN,2005/07/04,05:38:20 +2:00 GMT,65.125.135.162:2314,192.168.31.2:2100,TCP (flags:S)
+FWIN,2005/07/04,06:14:44 +2:00 GMT,147.46.253.186:3287,192.168.31.2:42,TCP (flags:S)
+FWIN,2005/07/04,06:47:36 +2:00 GMT,200.45.96.148:3854,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/04,06:56:40 +2:00 GMT,61.152.158.123:38001,192.168.31.2:1027,UDP
+FWIN,2005/07/04,07:30:24 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1027,UDP
+FWIN,2005/07/04,07:59:52 +2:00 GMT,61.172.246.74:54835,192.168.31.2:1026,UDP
+FWIN,2005/07/04,07:59:52 +2:00 GMT,61.172.246.74:54835,192.168.31.2:1027,UDP
+FWIN,2005/07/04,08:35:02 +2:00 GMT,130.157.159.108:3862,192.168.31.2:4899,TCP (flags:S)
+FWIN,2005/07/04,08:54:42 +2:00 GMT,61.152.158.123:38001,192.168.31.2:1026,UDP
+FWIN,2005/07/04,08:54:42 +2:00 GMT,61.152.158.123:38001,192.168.31.2:1027,UDP
+PE,2005/07/04,09:00:00 +2:00 GMT,Aplikacja logowania systemu Windows NT,127.0.0.1:1057,N/A
+PE,2005/07/04,09:00:00 +2:00 GMT,Aparat Harmonogramu zadañ,0.0.0.0:1045,N/A
+PE,2005/07/04,09:01:04 +2:00 GMT,Us³ugi i aplikacja Kontroler,192.168.11.1:53,N/A
+FWIN,2005/07/04,09:04:26 +2:00 GMT,130.157.159.108:1380,192.168.31.2:4899,TCP (flags:S)
+PE,2005/07/04,09:10:48 +2:00 GMT,Spooler SubSystem App,192.168.11.1:53,N/A
+FWIN,2005/07/04,09:48:16 +2:00 GMT,192.168.34.13:2738,192.168.31.2:445,TCP (flags:S)
+FWIN,2005/07/04,09:56:00 +2:00 GMT,218.66.104.140:46513,192.168.31.2:1027,UDP
+FWIN,2005/07/04,10:27:46 +2:00 GMT,206.180.110.98:2834,192.168.31.2:5900,TCP (flags:S)

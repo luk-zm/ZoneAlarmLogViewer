@@ -1,0 +1,17 @@
+ZoneAlarm Logging Client v6.1.744.001
+Windows 2000-5.0.2195-Service Pack 4-SP
+type,date,time,source,destination,transport (Security)
+type,date,time,virus name,file name,mode,e-mail id (Anti-Virus)
+type,date,time,source,destination,action,service (IM Security)
+type,date,time,source,destination,program,action (Malicious Code Protection)
+type,date,time,action,product,file,event,subevent,class,data,data,... (OSFirewall)
+type,date,time,name,type,mode (Anti-Spyware)
+OSFW,2006/05/09,09:26:32 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE
+OSFW,2006/05/09,09:27:18 +2:00 GMT,UNKNOWN(0),Microsoft Office Outlook,E:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\OUTLOOK.EXE,PROCESS,SPAWNPROCESS,SRC,E:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\WINWORD.EXE,7a0fa3a0-282b4630-f3768a74-441d4bae,ab324b1-9eee5900
+OSFW,2006/05/09,11:27:08 +2:00 GMT,UNKNOWN(0),Aplikacja logowania systemu Windows NT,E:\WINNT\system32\WINLOGON.EXE,PROCESS,SPAWNPROCESS,SRC,E:\WINNT\SYSTEM32\RDPCLIP.EXE
+OSFW,2006/05/09,11:28:42 +2:00 GMT,UNKNOWN(0),Microsoft Office Outlook,E:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\OUTLOOK.EXE,PROCESS,SPAWNPROCESS,SRC,E:\PROGRAM FILES\INTERNET EXPLORER\IEXPLORE.EXE,9101a20d-b15019f4-f12e0d9d-7f3836cb,6a1ad-26eb817b-df59dff8
+OSFW,2006/05/09,11:54:00 +2:00 GMT,UNKNOWN(0),CafeNews.exe,E:\DOWNLOADS\cafeNews\CafeNews.exe,REGISTRY,SETVALUE,SRC,HKLM\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RUN,CafeNews
+PE,2006/05/09,11:54:14 +2:00 GMT,Cafe News Application by Multimedia Cafe,80.72.40.78:53,N/A
+OSFW,2006/05/09,11:58:10 +2:00 GMT,UNKNOWN(0),Cafe News Application by Multimedia Cafe,E:\PROGRAM FILES\PRESS-SERVICE\CafeNews\CN.exe,REGISTRY,SETVALUE,SRC,HKLM\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RUN,CafeNews
+OSFW,2006/05/09,12:21:14 +2:00 GMT,UNKNOWN(0),Cafe News Application by Multimedia Cafe,E:\PROGRAM FILES\PRESS-SERVICE\CafeNews\CN.exe,PROCESS,SPAWNPROCESS,SRC,E:\PROGRAM FILES\INTERNET EXPLORER\IEXPLORE.EXE,9101a20d-b15019f4-f12e0d9d-7f3836cb,6a1ad-26eb817b-df59dff8
+ACCESS,2006/05/09,13:58:08 +2:00 GMT,Generic Host Process for Win32 Services was blocked from accepting a connection from the Internet (192.168.34.197:Port 4516).,N/A,N/A
