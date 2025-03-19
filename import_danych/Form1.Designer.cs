@@ -41,7 +41,7 @@
             this.outAddrCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.protocolCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fullFileListView = new System.Windows.Forms.ListView();
-            this.line = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.processedFiles = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.processedLinesCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -145,7 +145,7 @@
             // fullFileListView
             // 
             this.fullFileListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.line});
+            this.processedFiles});
             this.fullFileListView.HideSelection = false;
             this.fullFileListView.Location = new System.Drawing.Point(13, 39);
             this.fullFileListView.Name = "fullFileListView";
@@ -155,10 +155,10 @@
             this.fullFileListView.View = System.Windows.Forms.View.Details;
             this.fullFileListView.VirtualMode = true;
             // 
-            // line
+            // processedFiles
             // 
-            this.line.Text = "line";
-            this.line.Width = 600;
+            this.processedFiles.Text = "Przetworzone pliki";
+            this.processedFiles.Width = 600;
             // 
             // processedLinesCountLabel
             // 
@@ -205,7 +205,7 @@
         private System.Windows.Forms.ColumnHeader protocolCol;
         private System.Windows.Forms.ColumnHeader timeCol;
         private System.Windows.Forms.ListView fullFileListView;
-        private System.Windows.Forms.ColumnHeader line;
+        private System.Windows.Forms.ColumnHeader processedFiles;
         private System.Windows.Forms.Label processedLinesCountLabel;
     }
 }

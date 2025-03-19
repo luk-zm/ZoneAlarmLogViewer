@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,7 +78,6 @@ namespace import_danych
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        processedData[0].Add(line);
                         string[] elements = extractLineElements(line);
                         if (elements != null)
                         {
@@ -97,6 +97,7 @@ namespace import_danych
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(exp.Message);
             }
+            processedData[0].Add(fileName);
             return (processedData, processedLinesCount);
         }
 
@@ -109,14 +110,16 @@ namespace import_danych
 
             listView.VirtualListSize = 0;
             listView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
-            listView.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView_CacheVirtualItems);
+            //listView.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView_CacheVirtualItems);
 
             fullFileListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(fullFileListView_RetrieveVirtualItem);
-            fullFileListView.CacheVirtualItems += new CacheVirtualItemsEventHandler(fullFileListView_CacheVirtualItems);
+            //fullFileListView.CacheVirtualItems += new CacheVirtualItemsEventHandler(fullFileListView_CacheVirtualItems);
         }
 
         public List<string>[] data;
         public ListViewItem[] myCache;
+        private CacheVirtualItemsEventArgs lastCacheArgsListView;
+        public CacheVirtualItemsEventArgs lastCacheArgsFullListView;
         public int firstItem;
 
         void listView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
@@ -198,6 +201,7 @@ namespace import_danych
                 }
                 myCache[i] = item;
             }
+            lastCacheArgsListView = new CacheVirtualItemsEventArgs(e.StartIndex, e.EndIndex);
         }
 
         public ListViewItem[] fullFileViewCache;
@@ -251,6 +255,7 @@ namespace import_danych
                     fullFileViewCache[i] = new ListViewItem("N/A");
                 }
             }
+            lastCacheArgsFullListView = new CacheVirtualItemsEventArgs(e.StartIndex, e.EndIndex);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -270,9 +275,14 @@ namespace import_danych
             this.data = data;
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
             listView.VirtualListSize = data[1].Count;
-            listView.RedrawItems(0, listView.VirtualListSize - 1, true);
             fullFileListView.VirtualListSize = data[0].Count;
-            fullFileListView.RedrawItems(0, fullFileListView.VirtualListSize - 1, true);
+            /*
+            if (lastCacheArgsFullListView != null && lastCacheArgsListView != null)
+            {
+                fullFileListView_CacheVirtualItems(this, lastCacheArgsFullListView);
+                listView_CacheVirtualItems(this, lastCacheArgsListView);
+            }
+            */
         }
 
         private void fileDialogButton_Click(object sender, EventArgs e)
@@ -376,7 +386,15 @@ namespace import_danych
 
                 TimeSpan ts;
                 Stopwatch s = Stopwatch.StartNew();
-                (List<string>[] data, int processedLinesCount) = processFolder(folderName);
+                var bw = new BackgroundWorker();
+                bw.WorkerReportsProgress = true;
+                bw.WorkerSupportsCancellation = true;
+
+                bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+                bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+                bw.RunWorkerAsync(folderName);
+
+                /*(List<string>[] data, int processedLinesCount) = processFolder(folderName);
                 processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
                 this.data = data;
                 ts = s.Elapsed;
@@ -386,8 +404,31 @@ namespace import_danych
                 fullFileListView.VirtualListSize = data[0].Count;
                 fullFileListView.Refresh();
                 ts = s.Elapsed - ts;
-                Console.WriteLine(ts);
+                Console.WriteLine(ts);*/
             }
+        }
+        void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            string folderName = (string)e.Argument;
+            e.Result = processFolder(folderName);
+
+        }
+
+        void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show("anulowano");
+                return;
+            }
+            var (data, processedLinesCount) = ((List<string>[], int))e.Result;
+            this.data = data;
+            processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
+            listView.VirtualListSize = this.data[1].Count;
+            listView.Refresh();
+            fullFileListView.VirtualListSize = this.data[0].Count;
+            fullFileListView.Refresh();
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
