@@ -98,127 +98,157 @@ namespace import_danych
             return processedData;
         }
 
-        public void appendViews(List<string>[] data)
-        {
-            for (int i = 0; i < data[0].Count; ++i)
-            {
-                fullFileListBox.Items.Add(data[0][i]);
-            }
-            for (int i = 0; i < data[1].Count; ++i)
-            {
-                col1ListBox.Items.Add(data[1][i]);
-                col2ListBox.Items.Add(data[2][i]);
-                col3ListBox.Items.Add(data[3][i]);
-                col4ListBox.Items.Add(data[4][i]);
-                col5ListBox.Items.Add(data[5][i]);
-                col6ListBox.Items.Add(data[6][i]);
-            }
-        }
-
         public void updateViews(List<string>[] data)
         {
-            /*
-            fullFileListBox.BeginUpdate();
-            col1ListBox.BeginUpdate();
-            col2ListBox.BeginUpdate();
-            col3ListBox.BeginUpdate();
-            col4ListBox.BeginUpdate();
-            col5ListBox.BeginUpdate();
-            col6ListBox.BeginUpdate();
-
-            fullFileListBox.DataSource = data[0];
-            col1ListBox.DataSource = data[1];
-            col2ListBox.DataSource = data[2];
-            col3ListBox.DataSource = data[3];
-            col4ListBox.DataSource = data[4];
-            col5ListBox.DataSource = data[5];
-            col6ListBox.DataSource = data[6];
-
-            fullFileListBox.EndUpdate();
-            col1ListBox.EndUpdate();
-            col2ListBox.EndUpdate();
-            col3ListBox.EndUpdate();
-            col4ListBox.EndUpdate();
-            col5ListBox.EndUpdate();
-            col6ListBox.EndUpdate();
-            */
-            fullFileListBox.BeginUpdate();
-            col1ListBox.BeginUpdate();
-            col2ListBox.BeginUpdate();
-            col3ListBox.BeginUpdate();
-            col4ListBox.BeginUpdate();
-            col5ListBox.BeginUpdate();
-            col6ListBox.BeginUpdate();
-            fullFileListBox.Items.Clear();
-            col1ListBox.Items.Clear();
-            col2ListBox.Items.Clear();
-            col3ListBox.Items.Clear();
-            col4ListBox.Items.Clear();
-            col5ListBox.Items.Clear();
-            col6ListBox.Items.Clear();
-            for (int i = 0; i < data[0].Count; ++i)
-            {
-                fullFileListBox.Items.Add(data[0][i]);
-            }
-            for (int i = 0; i < data[1].Count; ++i)
-            {
-                col1ListBox.Items.Add(data[1][i]);
-                col2ListBox.Items.Add(data[2][i]);
-                col3ListBox.Items.Add(data[3][i]);
-                col4ListBox.Items.Add(data[4][i]);
-                col5ListBox.Items.Add(data[5][i]);
-                col6ListBox.Items.Add(data[6][i]);
-            }
-            fullFileListBox.EndUpdate();
-            col1ListBox.EndUpdate();
-            col2ListBox.EndUpdate();
-            col3ListBox.EndUpdate();
-            col4ListBox.EndUpdate();
-            col5ListBox.EndUpdate();
-            col6ListBox.EndUpdate();
         }
         public Form1()
         {
             InitializeComponent();
-            /*
-            fullFileListBox.VirtualMode = true;
-            fullFileListBox.VirtualListSize = 10000;
-            col1ListBox.VirtualMode = true;
-            col1ListBox.VirtualListSize = 10000;
-            col2ListBox.VirtualMode = true;
-            col2ListBox.VirtualListSize = 10000;
-            col3ListBox.VirtualMode = true;
-            col3ListBox.VirtualListSize = 10000;
-            col4ListBox.VirtualMode = true;
-            col4ListBox.VirtualListSize = 10000;
-            col5ListBox.VirtualMode = true;
-            col5ListBox.VirtualListSize = 10000;
-            col6ListBox.VirtualMode = true;
-            col6ListBox.VirtualListSize = 10000;
 
+            listView.VirtualListSize = 0;
+            listView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
+            listView.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView_CacheVirtualItems);
 
-            fullFileListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(fullFileListBox_RetrieveVirtualItem);
-            fullFileListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            col1ListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView1_RetrieveVirtualItem);
-            col1ListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            col2ListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView1_RetrieveVirtualItem);
-            col2ListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            col3ListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView1_RetrieveVirtualItem);
-            col3ListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            col4ListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView1_RetrieveVirtualItem);
-            col4ListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            col5ListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView1_RetrieveVirtualItem);
-            col5ListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            col6ListBox.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView1_RetrieveVirtualItem);
-            col6ListBox.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView1_CacheVirtualItems);
-            */
+            fullFileListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(fullFileListView_RetrieveVirtualItem);
+            fullFileListView.CacheVirtualItems += new CacheVirtualItemsEventHandler(fullFileListView_CacheVirtualItems);
         }
 
-        public ListViewItem[] cache;
+        public List<string>[] data;
+        public ListViewItem[] myCache;
+        public int firstItem;
 
-        void fullFileListBox_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
+        void listView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
         {
+            //Caching is not required but improves performance on large sets.
+            //To leave out caching, don't connect the CacheVirtualItems event 
+            //and make sure myCache is null.
 
+            //check to see if the requested item is currently in the cache
+            if (myCache != null && e.ItemIndex >= firstItem && e.ItemIndex < firstItem + myCache.Length)
+            {
+                //A cache hit, so get the ListViewItem from the cache instead of making a new one.
+                e.Item = myCache[e.ItemIndex - firstItem];
+            }
+            else
+            {
+                //A cache miss, so create a new ListViewItem and pass it back.
+                ListViewItem item;
+                if (data != null)
+                {
+                    item = new ListViewItem(data[1][e.ItemIndex]);
+                    item.SubItems.Add(data[2][e.ItemIndex]);
+                    item.SubItems.Add(data[3][e.ItemIndex]);
+                    item.SubItems.Add(data[4][e.ItemIndex]);
+                    item.SubItems.Add(data[5][e.ItemIndex]);
+                    item.SubItems.Add(data[6][e.ItemIndex]);
+                }
+                else
+                {
+                    item = new ListViewItem("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                }
+                e.Item = item;
+            }
+        }
+
+        void listView_CacheVirtualItems(object sender, CacheVirtualItemsEventArgs e)
+        {
+            //We've gotten a request to refresh the cache.
+            //First check if it's really neccesary.
+            if (myCache != null && e.StartIndex >= firstItem && e.EndIndex <= firstItem + myCache.Length)
+            {
+                //If the newly requested cache is a subset of the old cache, 
+                //no need to rebuild everything, so do nothing.
+                return;
+            }
+
+            //Now we need to rebuild the cache.
+            firstItem = e.StartIndex;
+            int length = e.EndIndex - e.StartIndex + 1; //indexes are inclusive
+            myCache = new ListViewItem[length];
+
+            //Fill the cache with the appropriate ListViewItems.
+            for (int i = 0; i < length; i++)
+            {
+                ListViewItem item;
+                if (data != null)
+                {
+                    int targetIndex = e.StartIndex + i;
+                    item = new ListViewItem(data[1][targetIndex]);
+                    item.SubItems.Add(data[2][targetIndex]);
+                    item.SubItems.Add(data[3][targetIndex]);
+                    item.SubItems.Add(data[4][targetIndex]);
+                    item.SubItems.Add(data[5][targetIndex]);
+                    item.SubItems.Add(data[6][targetIndex]);
+                }
+                else
+                {
+                    item = new ListViewItem("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                    item.SubItems.Add("N/A");
+                }
+                myCache[i] = item;
+            }
+        }
+
+        public ListViewItem[] fullFileViewCache;
+        public int fullFileFirstItem;
+
+        void fullFileListView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
+        {
+            if (fullFileViewCache != null && e.ItemIndex >= fullFileFirstItem && e.ItemIndex < fullFileFirstItem + fullFileViewCache.Length)
+            {
+                e.Item = fullFileViewCache[e.ItemIndex - fullFileFirstItem];
+            }
+            else
+            {
+                if (data != null)
+                {
+                    e.Item = new ListViewItem(data[0][e.ItemIndex]);
+                }
+                else
+                {
+                    e.Item = new ListViewItem("N/A");
+                }
+            }
+        }
+
+        void fullFileListView_CacheVirtualItems(object sender, CacheVirtualItemsEventArgs e)
+        {
+            //We've gotten a request to refresh the cache.
+            //First check if it's really neccesary.
+            if (fullFileViewCache != null && e.StartIndex >= fullFileFirstItem && e.EndIndex <= fullFileFirstItem + fullFileViewCache.Length)
+            {
+                //If the newly requested cache is a subset of the old cache, 
+                //no need to rebuild everything, so do nothing.
+                return;
+            }
+
+            //Now we need to rebuild the cache.
+            fullFileFirstItem = e.StartIndex;
+            int length = e.EndIndex - e.StartIndex + 1; //indexes are inclusive
+            fullFileViewCache = new ListViewItem[length];
+
+            //Fill the cache with the appropriate ListViewItems.
+            for (int i = 0; i < length; i++)
+            {
+                if (data != null)
+                {
+                    int targetIndex = e.StartIndex + i;
+                    fullFileViewCache[i] = new ListViewItem(data[0][targetIndex]);
+                }
+                else
+                {
+                    fullFileViewCache[i] = new ListViewItem("N/A");
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -235,7 +265,11 @@ namespace import_danych
         {
             string fileName = fileNameTextBox.Text;
             List<string>[] data = processFile(fileName);
-            updateViews(data);
+            this.data = data;
+            listView.VirtualListSize = data[1].Count;
+            listView.RedrawItems(0, listView.VirtualListSize - 1, true);
+            fullFileListView.VirtualListSize = data[0].Count;
+            fullFileListView.RedrawItems(0, fullFileListView.VirtualListSize - 1, true);
         }
 
         private void fileDialogButton_Click(object sender, EventArgs e)
@@ -333,13 +367,21 @@ namespace import_danych
                 TimeSpan ts;
                 Stopwatch s = Stopwatch.StartNew();
                 List<string>[] data = processFolder(folderName);
-               // data[0].CopyTo(cache.ToArray());
+                this.data = data;
                 ts = s.Elapsed;
                 Console.WriteLine(ts);
-                updateViews(data);
+                listView.VirtualListSize = data[1].Count;
+                listView.Refresh();
+                fullFileListView.VirtualListSize = data[0].Count;
+                fullFileListView.Refresh();
                 ts = s.Elapsed - ts;
                 Console.WriteLine(ts);
             }
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
