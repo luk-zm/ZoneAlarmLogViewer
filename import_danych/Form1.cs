@@ -62,9 +62,10 @@ namespace import_danych
             return result;
         }
 
-        public List<string>[] processFile(string fileName)
+        public (List<string>[] data, int processedLinesCount) processFile(string fileName)
         {
             List<string>[] processedData = new List<string>[7];
+            int processedLinesCount = 0;
             for (int i = 0; i < processedData.Length; ++i)
             {
                 processedData[i] = new List<string>();
@@ -86,6 +87,7 @@ namespace import_danych
                             processedData[4].Add(elements[3]);
                             processedData[5].Add(elements[4]);
                             processedData[6].Add(elements[5]);
+                            processedLinesCount++;
                         }
                     }
                 }
@@ -95,7 +97,7 @@ namespace import_danych
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(exp.Message);
             }
-            return processedData;
+            return (processedData, processedLinesCount);
         }
 
         public void updateViews(List<string>[] data)
@@ -264,8 +266,9 @@ namespace import_danych
         private void fileLoadButton_Click(object sender, EventArgs e)
         {
             string fileName = fileNameTextBox.Text;
-            List<string>[] data = processFile(fileName);
+            (List<string>[] data, int processedLinesCount) = processFile(fileName);
             this.data = data;
+            processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
             listView.VirtualListSize = data[1].Count;
             listView.RedrawItems(0, listView.VirtualListSize - 1, true);
             fullFileListView.VirtualListSize = data[0].Count;
@@ -288,7 +291,7 @@ namespace import_danych
             aboutForm.Show(this);
         }
 
-        public void processFolderThread(ref string[] files, int startIdx, int endIdx, ref List<string>[] result)
+        public void processFolderThread(ref string[] files, int startIdx, int endIdx, ref List<string>[] result, ref int processedLinesCount)
         {
             result = new List<string>[7];
             for (int i = 0; i < result.Length; ++i)
@@ -297,7 +300,10 @@ namespace import_danych
             }
             for (; startIdx < endIdx; ++startIdx)
             {
-                List<string>[] processingResult = processFile(files[startIdx]);
+                if (!files[startIdx].EndsWith(".txt"))
+                    continue;
+                (List<string>[] processingResult, int processedLinesOfFileCount) = processFile(files[startIdx]);
+                processedLinesCount += processedLinesOfFileCount;
                 for (int j = 0; j < result.Length; ++j)
                 {
                     for (int i = 0; i < processingResult[j].Count; ++i)
@@ -308,7 +314,7 @@ namespace import_danych
             }
         }
 
-        public List<string>[] processFolder(string folderName)
+        public (List<string>[] data, int processedLinesCount) processFolder(string folderName)
         {
             List<string>[] result = new List<string>[7];
             for (int i = 0; i < result.Length; ++i)
@@ -320,6 +326,7 @@ namespace import_danych
             int numOfThreads = 6;
             Thread[] threads = new Thread[numOfThreads];
             List<string>[][] tempResults = new List<string>[numOfThreads][];
+            int[] processedLinesCounts = new int[numOfThreads];
             
             int step = (int)Math.Ceiling((double)(files.Length) / numOfThreads);
 
@@ -327,13 +334,15 @@ namespace import_danych
             {
                 int threadIndex = i; // C# lambda capture
                 threads[threadIndex] = new Thread(() => processFolderThread(ref files, step * threadIndex,
-                    step * (threadIndex + 1), ref tempResults[threadIndex]));
+                    step * (threadIndex + 1), ref tempResults[threadIndex], ref processedLinesCounts[threadIndex]));
                 threads[threadIndex].Start();
             }
             threads[numOfThreads - 1] = new Thread(() =>
-                processFolderThread(ref files, (numOfThreads - 1)*step, files.Length, ref tempResults[numOfThreads - 1]));
+                processFolderThread(ref files, (numOfThreads - 1)*step, files.Length,
+                ref tempResults[numOfThreads - 1], ref processedLinesCounts[numOfThreads - 1]));
             threads[numOfThreads - 1].Start();
 
+            int processedLinesCount = 0;
             for (int i = 0; i < numOfThreads; ++i)
             {
                 threads[i].Join();
@@ -345,8 +354,9 @@ namespace import_danych
                     for (int j = 0; j < tempResults[i][dataCol].Count; ++j)
                         result[dataCol].Add(tempResults[i][dataCol][j]);
                 }
+                processedLinesCount += processedLinesCounts[i];
             }
-            return result;
+            return (result, processedLinesCount);
         }
 
         private void openCatalogButton_Click(object sender, EventArgs e)
@@ -366,7 +376,8 @@ namespace import_danych
 
                 TimeSpan ts;
                 Stopwatch s = Stopwatch.StartNew();
-                List<string>[] data = processFolder(folderName);
+                (List<string>[] data, int processedLinesCount) = processFolder(folderName);
+                processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
                 this.data = data;
                 ts = s.Elapsed;
                 Console.WriteLine(ts);

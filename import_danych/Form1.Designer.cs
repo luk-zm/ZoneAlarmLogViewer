@@ -36,12 +36,13 @@
             this.listView = new System.Windows.Forms.ListView();
             this.eventCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.timeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.inAddrCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.outAddrCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.protocolCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.timeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fullFileListView = new System.Windows.Forms.ListView();
             this.line = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.processedLinesCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fileNameTextBox
@@ -105,7 +106,7 @@
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(12, 198);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(776, 240);
+            this.listView.Size = new System.Drawing.Size(776, 229);
             this.listView.TabIndex = 12;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -121,6 +122,11 @@
             this.dateCol.Text = "Data";
             this.dateCol.Width = 90;
             // 
+            // timeCol
+            // 
+            this.timeCol.Text = "Czas";
+            this.timeCol.Width = 120;
+            // 
             // inAddrCol
             // 
             this.inAddrCol.Text = "AdresWe";
@@ -135,11 +141,6 @@
             // 
             this.protocolCol.Text = "Protokół";
             this.protocolCol.Width = 120;
-            // 
-            // timeCol
-            // 
-            this.timeCol.Text = "Czas";
-            this.timeCol.Width = 120;
             // 
             // fullFileListView
             // 
@@ -159,11 +160,21 @@
             this.line.Text = "line";
             this.line.Width = 600;
             // 
+            // processedLinesCountLabel
+            // 
+            this.processedLinesCountLabel.AutoSize = true;
+            this.processedLinesCountLabel.Location = new System.Drawing.Point(12, 434);
+            this.processedLinesCountLabel.Name = "processedLinesCountLabel";
+            this.processedLinesCountLabel.Size = new System.Drawing.Size(99, 13);
+            this.processedLinesCountLabel.TabIndex = 14;
+            this.processedLinesCountLabel.Text = "Przetworzone linijki:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.processedLinesCountLabel);
             this.Controls.Add(this.fullFileListView);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.openCatalogButton);
@@ -195,6 +206,7 @@
         private System.Windows.Forms.ColumnHeader timeCol;
         private System.Windows.Forms.ListView fullFileListView;
         private System.Windows.Forms.ColumnHeader line;
+        private System.Windows.Forms.Label processedLinesCountLabel;
     }
 }
 
