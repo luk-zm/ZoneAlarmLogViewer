@@ -43,6 +43,8 @@
             this.fullFileListView = new System.Windows.Forms.ListView();
             this.processedFiles = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.processedLinesCountLabel = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // fileNameTextBox
@@ -51,8 +53,8 @@
             this.fileNameTextBox.Name = "fileNameTextBox";
             this.fileNameTextBox.Size = new System.Drawing.Size(439, 20);
             this.fileNameTextBox.TabIndex = 0;
-            this.fileNameTextBox.Text = "C:\\Users\\Luk\\source\\repos\\import_danych\\import_danych\\dane\\db_small\\ZALog2003.10." +
-    "06.txt";
+            this.fileNameTextBox.Text = "D:\\rizzai\\ZoneAlarmLogViewer\\ZoneAlarmLogViewer\\dane\\db\\ZALog2003.10.03.txt";
+            this.fileNameTextBox.TextChanged += new System.EventHandler(this.fileNameTextBox_TextChanged);
             // 
             // fileLoadButton
             // 
@@ -149,7 +151,7 @@
             this.fullFileListView.HideSelection = false;
             this.fullFileListView.Location = new System.Drawing.Point(13, 39);
             this.fullFileListView.Name = "fullFileListView";
-            this.fullFileListView.Size = new System.Drawing.Size(775, 153);
+            this.fullFileListView.Size = new System.Drawing.Size(775, 129);
             this.fullFileListView.TabIndex = 13;
             this.fullFileListView.UseCompatibleStateImageBehavior = false;
             this.fullFileListView.View = System.Windows.Forms.View.Details;
@@ -169,11 +171,30 @@
             this.processedLinesCountLabel.TabIndex = 14;
             this.processedLinesCountLabel.Text = "Przetworzone linijki:";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(11, 174);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(681, 23);
+            this.progressBar1.TabIndex = 15;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(699, 174);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 16;
+            this.cancelButton.Text = "Anuluj";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.processedLinesCountLabel);
             this.Controls.Add(this.fullFileListView);
             this.Controls.Add(this.listView);
@@ -207,6 +228,8 @@
         private System.Windows.Forms.ListView fullFileListView;
         private System.Windows.Forms.ColumnHeader processedFiles;
         private System.Windows.Forms.Label processedLinesCountLabel;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
 

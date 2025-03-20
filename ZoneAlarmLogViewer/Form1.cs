@@ -37,7 +37,11 @@ namespace import_danych
                 return LINE_RESULT.BAD_NUM_OF_ELEMENTS;
             int firstCommaIndex = line.IndexOf(',');
             string first_element = line.Substring(0, firstCommaIndex);
-            if (first_element != "FWIN" && first_element != "PE" && first_element != "ZLUpdate")
+            /*if (first_element != "FWIN" && first_element != "PE" && first_element != "ZLUpdate" &&
+                first_element != "FWOUT" && first_element != "FWROUTE" && first_element != "FWLOOP" &&
+                first_element != "LOCK" && first_element != "MS" && first_element != "ACCESS")
+                return LINE_RESULT.BAD_TYPE;*/
+            if (first_element ==  "type")
                 return LINE_RESULT.BAD_TYPE;
             return LINE_RESULT.OK;
         }
@@ -324,14 +328,13 @@ namespace import_danych
             }
         }
 
-        public (List<string>[] data, int processedLinesCount) processFolder(string folderName)
+        static public(List<string>[] data, int processedLinesCount) processFolder(string[] files)
         {
             List<string>[] result = new List<string>[7];
             for (int i = 0; i < result.Length; ++i)
             {
                 result[i] = new List<string>();
             }
-            string[] files = Directory.GetFiles(folderName);
             
             int numOfThreads = 6;
             Thread[] threads = new Thread[numOfThreads];
@@ -369,10 +372,17 @@ namespace import_danych
             return (result, processedLinesCount);
         }
 
+        static public (List<string>[] data, int processedLinesCount) processFolder(string folderName)
+        {
+            string[] files = Directory.GetFiles(folderName);
+            return processFolder(files);
+            
+        }
+
         private void openCatalogButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.SelectedPath = "C:\\Users\\Luk\\source\\repos\\import_danych\\import_danych\\dane\\";
+            folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
             if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string folderName = folderBrowserDialog.SelectedPath;
@@ -386,13 +396,8 @@ namespace import_danych
 
                 TimeSpan ts;
                 Stopwatch s = Stopwatch.StartNew();
-                var bw = new BackgroundWorker();
-                bw.WorkerReportsProgress = true;
-                bw.WorkerSupportsCancellation = true;
-
-                bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-                bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
-                bw.RunWorkerAsync(folderName);
+                Form load = new catalogLoad(folderName);
+                
 
                 /*(List<string>[] data, int processedLinesCount) = processFolder(folderName);
                 processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
@@ -407,33 +412,19 @@ namespace import_danych
                 Console.WriteLine(ts);*/
             }
         }
-        void bw_DoWork(object sender, DoWorkEventArgs e)
-        {
-            
-            string folderName = (string)e.Argument;
-            e.Result = processFolder(folderName);
-
-        }
-
-        void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled)
-            {
-                MessageBox.Show("anulowano");
-                return;
-            }
-            var (data, processedLinesCount) = ((List<string>[], int))e.Result;
-            this.data = data;
-            processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
-            listView.VirtualListSize = this.data[1].Count;
-            listView.Refresh();
-            fullFileListView.VirtualListSize = this.data[0].Count;
-            fullFileListView.Refresh();
-        }
-
+       
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void fileNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
         }
     }
 }
