@@ -52,12 +52,7 @@
     <Compile Include="aboutProgramForm.Designer.cs">
       <DependentUpon>aboutProgramForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="catalogLoad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="catalogLoad.Designer.cs">
-      <DependentUpon>catalogLoad.cs</DependentUpon>
-    </Compile>
+    <Compile Include="fileProcessing.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
