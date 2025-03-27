@@ -15,10 +15,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace import_danych
 {
-    public partial class Form1: Form
+    public partial class Form1 : Form
     {
 
-       
+
 
         public void updateViews(List<string>[] data)
         {
@@ -220,7 +220,7 @@ namespace import_danych
             aboutForm.Show(this);
         }
 
-       
+
 
         private void openCatalogButton_Click(object sender, EventArgs e)
         {
@@ -230,38 +230,17 @@ namespace import_danych
             {
                 string folderName = folderBrowserDialog.SelectedPath;
 
-                var bw = new BackgroundWorker();
-                bw.WorkerReportsProgress = true;
-                bw.WorkerSupportsCancellation = true;
+                processFileForm processFileForm = new processFileForm(folderName);
+                processFileForm.Show(this);
 
-                bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-                bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
-                bw.RunWorkerAsync(folderName);
+                this.data = processFileForm.data;
+                int processedLinesCount = 0;
+                processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
+                /*listView.VirtualListSize = this.data[1].Count;
+                listView.Refresh();
+                fullFileListView.VirtualListSize = this.data[0].Count;
+                fullFileListView.Refresh();*/
             }
-        }
-
-        void bw_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-            string folderName = (string)e.Argument;
-            e.Result = fileProcessing.processFolder(folderName);
-
-        }
-
-        void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled)
-            {
-                MessageBox.Show("anulowano");
-                return;
-            }
-            var (data, processedLinesCount) = ((List<string>[], int))e.Result;
-            this.data = data;
-            processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
-            listView.VirtualListSize = this.data[1].Count;
-            listView.Refresh();
-            fullFileListView.VirtualListSize = this.data[0].Count;
-            fullFileListView.Refresh();
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
