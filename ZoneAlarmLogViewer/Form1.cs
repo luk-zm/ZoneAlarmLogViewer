@@ -239,13 +239,33 @@ namespace import_danych
                 bw.RunWorkerAsync(folderName);
             }
         }
-       
-        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+
+        void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+
             string folderName = (string)e.Argument;
             e.Result = fileProcessing.processFolder(folderName);
 
+        }
+
+        void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show("anulowano");
+                return;
+            }
+            var (data, processedLinesCount) = ((List<string>[], int))e.Result;
+            this.data = data;
+            processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
+            listView.VirtualListSize = this.data[1].Count;
+            listView.Refresh();
+            fullFileListView.VirtualListSize = this.data[0].Count;
+            fullFileListView.Refresh();
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
 
         private void fileNameTextBox_TextChanged(object sender, EventArgs e)
