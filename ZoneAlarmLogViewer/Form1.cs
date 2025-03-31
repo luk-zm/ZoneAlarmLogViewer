@@ -27,12 +27,13 @@ namespace import_danych
         {
             InitializeComponent();
 
-            listView.VirtualListSize = 0;
-            listView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
+            dataListView.VirtualListSize = 0;
+            dataListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
             //listView.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView_CacheVirtualItems);
 
-            fullFileListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(fullFileListView_RetrieveVirtualItem);
+            allLinesListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(fullFileListView_RetrieveVirtualItem);
             //fullFileListView.CacheVirtualItems += new CacheVirtualItemsEventHandler(fullFileListView_CacheVirtualItems);
+            data = new List<string>[8];
         }
 
         public List<string>[] data;
@@ -193,8 +194,8 @@ namespace import_danych
             (List<string>[] data, int processedLinesCount) = fileProcessing.processFile(fileName);
             this.data = data;
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
-            listView.VirtualListSize = data[1].Count;
-            fullFileListView.VirtualListSize = data[0].Count;
+            dataListView.VirtualListSize = data[1].Count;
+            allLinesListView.VirtualListSize = data[0].Count;
             /*
             if (lastCacheArgsFullListView != null && lastCacheArgsListView != null)
             {
@@ -225,21 +226,15 @@ namespace import_danych
         private void openCatalogButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
+            // folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
+            folderBrowserDialog.SelectedPath = @"C:\Users\Luk\source\repos\import_danych\ZoneAlarmLogViewer\dane\db";
             if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string folderName = folderBrowserDialog.SelectedPath;
 
-                processFileForm processFileForm = new processFileForm(folderName);
+                processFileForm processFileForm = new processFileForm(folderName, ref this.data,
+                    ref dataListView, ref allLinesListView, ref processedLinesCountLabel);
                 processFileForm.Show(this);
-
-                this.data = processFileForm.data;
-                int processedLinesCount = 0;
-                processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
-                /*listView.VirtualListSize = this.data[1].Count;
-                listView.Refresh();
-                fullFileListView.VirtualListSize = this.data[0].Count;
-                fullFileListView.Refresh();*/
             }
         }
 

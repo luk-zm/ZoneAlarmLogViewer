@@ -57,7 +57,7 @@ namespace import_danych
 
         static public(List<string>[] data, int processedLinesCount) processFile(string fileName)
         {
-            List<string>[] processedData = new List<string>[7];
+            List<string>[] processedData = new List<string>[8];
             int processedLinesCount = 0;
             for (int i = 0; i < processedData.Length; ++i)
             {
@@ -70,6 +70,7 @@ namespace import_danych
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
+                        processedData[0].Add(line);
                         string[] elements = extractLineElements(line);
                         if (elements != null)
                         {
@@ -89,13 +90,13 @@ namespace import_danych
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(exp.Message);
             }
-            processedData[0].Add(fileName);
+            processedData[7].Add(fileName);
             return (processedData, processedLinesCount);
         }
 
         static public void processFolderThread(ref string[] files, int startIdx, int endIdx, ref List<string>[] result, ref int processedLinesCount)
         {
-            result = new List<string>[7];
+            result = new List<string>[8];
             for (int i = 0; i < result.Length; ++i)
             {
                 result[i] = new List<string>();
@@ -118,7 +119,7 @@ namespace import_danych
 
         static public(List<string>[] data, int processedLinesCount) processFolder(string folderName)
         {
-            List<string>[] result = new List<string>[7];
+            List<string>[] result = new List<string>[8];
             for (int i = 0; i < result.Length; ++i)
             {
                 result[i] = new List<string>();

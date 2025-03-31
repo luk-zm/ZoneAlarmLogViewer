@@ -33,18 +33,16 @@
             this.fileDialogButton = new System.Windows.Forms.Button();
             this.aboutProgramButton = new System.Windows.Forms.Button();
             this.openCatalogButton = new System.Windows.Forms.Button();
-            this.listView = new System.Windows.Forms.ListView();
+            this.dataListView = new System.Windows.Forms.ListView();
             this.eventCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.inAddrCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.outAddrCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.protocolCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.fullFileListView = new System.Windows.Forms.ListView();
+            this.allLinesListView = new System.Windows.Forms.ListView();
             this.processedFiles = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.processedLinesCountLabel = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // fileNameTextBox
@@ -96,24 +94,24 @@
             this.openCatalogButton.UseVisualStyleBackColor = true;
             this.openCatalogButton.Click += new System.EventHandler(this.openCatalogButton_Click);
             // 
-            // listView
+            // dataListView
             // 
-            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.dataListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.eventCol,
             this.dateCol,
             this.timeCol,
             this.inAddrCol,
             this.outAddrCol,
             this.protocolCol});
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(12, 198);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(776, 229);
-            this.listView.TabIndex = 12;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.View = System.Windows.Forms.View.Details;
-            this.listView.VirtualMode = true;
-            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.dataListView.HideSelection = false;
+            this.dataListView.Location = new System.Drawing.Point(12, 174);
+            this.dataListView.Name = "dataListView";
+            this.dataListView.Size = new System.Drawing.Size(776, 253);
+            this.dataListView.TabIndex = 12;
+            this.dataListView.UseCompatibleStateImageBehavior = false;
+            this.dataListView.View = System.Windows.Forms.View.Details;
+            this.dataListView.VirtualMode = true;
+            this.dataListView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
             // eventCol
             // 
@@ -144,22 +142,22 @@
             this.protocolCol.Text = "Protokół";
             this.protocolCol.Width = 120;
             // 
-            // fullFileListView
+            // allLinesListView
             // 
-            this.fullFileListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.allLinesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.processedFiles});
-            this.fullFileListView.HideSelection = false;
-            this.fullFileListView.Location = new System.Drawing.Point(13, 39);
-            this.fullFileListView.Name = "fullFileListView";
-            this.fullFileListView.Size = new System.Drawing.Size(775, 129);
-            this.fullFileListView.TabIndex = 13;
-            this.fullFileListView.UseCompatibleStateImageBehavior = false;
-            this.fullFileListView.View = System.Windows.Forms.View.Details;
-            this.fullFileListView.VirtualMode = true;
+            this.allLinesListView.HideSelection = false;
+            this.allLinesListView.Location = new System.Drawing.Point(13, 39);
+            this.allLinesListView.Name = "allLinesListView";
+            this.allLinesListView.Size = new System.Drawing.Size(775, 129);
+            this.allLinesListView.TabIndex = 13;
+            this.allLinesListView.UseCompatibleStateImageBehavior = false;
+            this.allLinesListView.View = System.Windows.Forms.View.Details;
+            this.allLinesListView.VirtualMode = true;
             // 
             // processedFiles
             // 
-            this.processedFiles.Text = "Przetworzone pliki";
+            this.processedFiles.Text = "Przetworzone linie";
             this.processedFiles.Width = 600;
             // 
             // processedLinesCountLabel
@@ -171,33 +169,14 @@
             this.processedLinesCountLabel.TabIndex = 14;
             this.processedLinesCountLabel.Text = "Przetworzone linijki:";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(11, 174);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(681, 23);
-            this.progressBar1.TabIndex = 15;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(699, 174);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 16;
-            this.cancelButton.Text = "Anuluj";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.processedLinesCountLabel);
-            this.Controls.Add(this.fullFileListView);
-            this.Controls.Add(this.listView);
+            this.Controls.Add(this.allLinesListView);
+            this.Controls.Add(this.dataListView);
             this.Controls.Add(this.openCatalogButton);
             this.Controls.Add(this.aboutProgramButton);
             this.Controls.Add(this.fileDialogButton);
@@ -218,18 +197,16 @@
         private System.Windows.Forms.Button fileDialogButton;
         private System.Windows.Forms.Button aboutProgramButton;
         private System.Windows.Forms.Button openCatalogButton;
-        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ListView dataListView;
         private System.Windows.Forms.ColumnHeader eventCol;
         private System.Windows.Forms.ColumnHeader dateCol;
         private System.Windows.Forms.ColumnHeader inAddrCol;
         private System.Windows.Forms.ColumnHeader outAddrCol;
         private System.Windows.Forms.ColumnHeader protocolCol;
         private System.Windows.Forms.ColumnHeader timeCol;
-        private System.Windows.Forms.ListView fullFileListView;
+        private System.Windows.Forms.ListView allLinesListView;
         private System.Windows.Forms.ColumnHeader processedFiles;
         private System.Windows.Forms.Label processedLinesCountLabel;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button cancelButton;
     }
 }
 

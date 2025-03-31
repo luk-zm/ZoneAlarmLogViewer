@@ -30,9 +30,9 @@
         {
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.processedFilesListView = new System.Windows.Forms.ListView();
+            this.processedFiles = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.startButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.processedFiles = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // progressBar1
@@ -55,6 +55,11 @@
             this.processedFilesListView.UseCompatibleStateImageBehavior = false;
             this.processedFilesListView.View = System.Windows.Forms.View.Details;
             // 
+            // processedFiles
+            // 
+            this.processedFiles.Text = "Przetworzone pliki";
+            this.processedFiles.Width = 180;
+            // 
             // startButton
             // 
             this.startButton.Location = new System.Drawing.Point(13, 13);
@@ -73,11 +78,6 @@
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Anuluj";
             this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // processedFiles
-            // 
-            this.processedFiles.Text = "Przetworzone pliki";
-            this.processedFiles.Width = 180;
             // 
             // processFileForm
             // 

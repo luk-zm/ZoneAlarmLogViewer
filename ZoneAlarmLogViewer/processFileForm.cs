@@ -15,10 +15,18 @@ namespace import_danych
     {
         public string folderName;
         public List<string>[] data;
-        public processFileForm(string folderName)
+        public System.Windows.Forms.ListView dataListView;
+        public System.Windows.Forms.ListView allLinesListView;
+        Label processedLinesCountLabel;
+        public processFileForm(string folderName, ref List<string>[] data, ref System.Windows.Forms.ListView dataListView, 
+            ref System.Windows.Forms.ListView allLinesListView, ref Label processedLinesCountLabel)
         {
             InitializeComponent();
             this.folderName = folderName;
+            this.data = data;
+            this.dataListView = dataListView;
+            this.allLinesListView = allLinesListView;
+            this.processedLinesCountLabel = processedLinesCountLabel;
             processedFilesListView.VirtualMode = true;
             processedFilesListView.VirtualListSize = 0;
             processedFilesListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
@@ -28,7 +36,7 @@ namespace import_danych
         {
             if (data != null)
             {
-                e.Item = new ListViewItem(data[0][e.ItemIndex]);
+                e.Item = new ListViewItem(data[7][e.ItemIndex]);
             }
             else
             {
@@ -67,8 +75,11 @@ namespace import_danych
                 return;
             }
             var (data, processedLinesCount) = ((List<string>[], int))e.Result;
-            this.data = data;
-            processedFilesListView.VirtualListSize = data[0].Count;
+            data.CopyTo(this.data, 0);
+            processedFilesListView.VirtualListSize = data[7].Count;
+            allLinesListView.VirtualListSize = data[0].Count;
+            dataListView.VirtualListSize = data[1].Count;
+            processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
         }
     }
 }
