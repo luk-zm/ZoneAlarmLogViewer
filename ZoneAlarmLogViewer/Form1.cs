@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -41,6 +42,14 @@ namespace import_danych
         private CacheVirtualItemsEventArgs lastCacheArgsListView;
         public CacheVirtualItemsEventArgs lastCacheArgsFullListView;
         public int firstItem;
+        SqlConnection connection;
+
+        void openConnection()
+        {
+            string connectionString = "Data Source=(local);Initial Catalog=HurtowniaDanych;Integrated Security=True";
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+        }
 
         void listView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
         {
@@ -190,6 +199,7 @@ namespace import_danych
 
         private void fileLoadButton_Click(object sender, EventArgs e)
         {
+            openConnection();
             string fileName = fileNameTextBox.Text;
             (List<string>[] data, int processedLinesCount) = fileProcessing.processFile(fileName);
             this.data = data;
@@ -203,6 +213,7 @@ namespace import_danych
                 listView_CacheVirtualItems(this, lastCacheArgsListView);
             }
             */
+            connection.Close();
         }
 
         private void fileDialogButton_Click(object sender, EventArgs e)
@@ -225,6 +236,7 @@ namespace import_danych
 
         private void openCatalogButton_Click(object sender, EventArgs e)
         {
+            openConnection();
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
             //folderBrowserDialog.SelectedPath = @"C:\Users\Luk\source\repos\import_danych\ZoneAlarmLogViewer\dane\db";
@@ -236,6 +248,7 @@ namespace import_danych
                     ref dataListView, ref allLinesListView, ref processedLinesCountLabel);
                 processFileForm.Show(this);
             }
+            connection.Close();
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
