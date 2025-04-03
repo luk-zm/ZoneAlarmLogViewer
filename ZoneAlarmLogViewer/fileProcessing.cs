@@ -117,14 +117,13 @@ namespace import_danych
             }
         }
 
-        static public(List<string>[] data, int processedLinesCount) processFolder(string folderName)
+        static public (List<string>[] data, int processedLinesCount) processFiles(string[] files)
         {
             List<string>[] result = new List<string>[8];
             for (int i = 0; i < result.Length; ++i)
             {
                 result[i] = new List<string>();
             }
-            string[] files = Directory.GetFiles(folderName);
 
             int numOfThreads = 6;
             Thread[] threads = new Thread[numOfThreads];
@@ -160,6 +159,13 @@ namespace import_danych
                 processedLinesCount += processedLinesCounts[i];
             }
             return (result, processedLinesCount);
+        }
+
+        static public(List<string>[] data, int processedLinesCount) processFolder(string folderName)
+        {
+            string[] files = Directory.GetFiles(folderName);
+
+            return processFiles(files);
         }
     }
 }

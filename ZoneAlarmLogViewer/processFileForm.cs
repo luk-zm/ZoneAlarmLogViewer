@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,22 +51,76 @@ namespace import_danych
 
         }
 
+        BackgroundWorker bw;
+
         private void startButton_Click(object sender, EventArgs e)
         {
-            var bw = new BackgroundWorker();
+            bw = new BackgroundWorker();
             bw.WorkerReportsProgress = true;
             bw.WorkerSupportsCancellation = true;
 
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
-            bw.RunWorkerAsync(folderName);
+            bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
+            bw.RunWorkerAsync((folderName, bw));
+            startButton.Enabled = false;
         }
+
+        static string[] subarray(string[] arr, int startIndex, int endIndex)
+        {
+            string[] res = new string[endIndex - startIndex];
+            for (int i = 0; i < res.Length; ++i)
+            {
+                res[i] = arr[startIndex + i];
+            }
+            return res;
+        }
+
         void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-
-            string folderName = (string)e.Argument;
-            e.Result = fileProcessing.processFolder(folderName);
-
+            var (folderName, bw) = ((string, BackgroundWorker))e.Argument;
+            string[] files = Directory.GetFiles(folderName);
+            int step = files.Length / 10;
+            List<string>[] resultData = new List<string>[8];
+            for (int i = 0; i < resultData.Length; ++i)
+            {
+                resultData[i] = new List<string>();
+            }
+            int linesCount = 0;
+            for (int i = 0; i < 10; ++i)
+            {
+                if (bw.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                string[] fileChunk = subarray(files, step * i, step * (i + 1));
+                var (tmpData, tmpLinesCount) = fileProcessing.processFiles(fileChunk);
+                for (int j = 0; j  < tmpData.Length; ++j)
+                {
+                    for (int k = 0; k < tmpData[j].Count; ++k)
+                    {
+                        resultData[j].Add(tmpData[j][k]);
+                    }
+                }
+                linesCount += tmpLinesCount;
+                bw.ReportProgress((i+1)*10);
+            }
+            string[] lastFileChunk = subarray(files, step * 10, files.Length);
+            var (lastTmpData, lastTmpLinesCount) = fileProcessing.processFiles(lastFileChunk);
+            for (int j = 0; j < lastTmpData.Length; ++j)
+            {
+                for (int k = 0; k < lastTmpData[j].Count; ++k)
+                {
+                    resultData[j].Add(lastTmpData[j][k]);
+                }
+            }
+            linesCount += lastTmpLinesCount;
+            e.Result = (resultData, linesCount);
+        }
+        void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
         }
 
         void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -80,6 +136,16 @@ namespace import_danych
             allLinesListView.VirtualListSize = data[0].Count;
             dataListView.VirtualListSize = data[1].Count;
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
+            startButton.Enabled = true;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            if (bw.IsBusy)
+            {
+                bw.CancelAsync();
+                startButton.Enabled = true; ;
+            }
         }
     }
 }

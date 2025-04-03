@@ -78,6 +78,7 @@
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Anuluj";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // processFileForm
             // 
