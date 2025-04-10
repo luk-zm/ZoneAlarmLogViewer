@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,8 +22,9 @@ namespace import_danych
         public System.Windows.Forms.ListView dataListView;
         public System.Windows.Forms.ListView allLinesListView;
         Label processedLinesCountLabel;
+        SqlConnection connection;
         public processFileForm(string folderName, ref List<string>[] data, ref System.Windows.Forms.ListView dataListView, 
-            ref System.Windows.Forms.ListView allLinesListView, ref Label processedLinesCountLabel)
+            ref System.Windows.Forms.ListView allLinesListView, ref Label processedLinesCountLabel, SqlConnection connection)
         {
             InitializeComponent();
             this.folderName = folderName;
@@ -32,6 +35,13 @@ namespace import_danych
             processedFilesListView.VirtualMode = true;
             processedFilesListView.VirtualListSize = 0;
             processedFilesListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
+            this.connection = connection;
+        }
+        void openConnection()
+        {
+            string connectionString = "Data Source=(local);Initial Catalog=HurtowniaDanych;Integrated Security=True";
+            connection = new SqlConnection(connectionString);
+            connection.Open();
         }
 
         void listView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
@@ -137,6 +147,19 @@ namespace import_danych
             dataListView.VirtualListSize = data[1].Count;
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
             startButton.Enabled = true;
+            if (connection.State != ConnectionState.Executing)
+            {
+                Thread t = new Thread(() =>
+                {
+                    openConnection();
+                    for (int i = 0; i < data[1].Count; ++i)
+                    {
+                        fileProcessing.saveToDatabase(data[1][i], data[2][i], data[3][i], data[4][i], data[5][i], data[6][i], connection);
+                    }
+                    connection.Close();
+                });
+                t.Start();
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -236,7 +236,6 @@ namespace import_danych
 
         private void openCatalogButton_Click(object sender, EventArgs e)
         {
-            openConnection();
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
             //folderBrowserDialog.SelectedPath = @"C:\Users\Luk\source\repos\import_danych\ZoneAlarmLogViewer\dane\db";
@@ -245,10 +244,9 @@ namespace import_danych
                 string folderName = folderBrowserDialog.SelectedPath;
 
                 processFileForm processFileForm = new processFileForm(folderName, ref this.data,
-                    ref dataListView, ref allLinesListView, ref processedLinesCountLabel);
+                    ref dataListView, ref allLinesListView, ref processedLinesCountLabel, connection);
                 processFileForm.Show(this);
             }
-            connection.Close();
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
