@@ -154,6 +154,8 @@ namespace import_danych
                 {
                     for (int i = 0; i < data[1].Count; ++i)
                     {
+                        if (connection.State == ConnectionState.Closed)
+                            openConnection();
                         fileProcessing.saveToDatabase(data[1][i], data[2][i], data[3][i], data[4][i], data[5][i], data[6][i], connection);
                     }
                     connection.Close();
