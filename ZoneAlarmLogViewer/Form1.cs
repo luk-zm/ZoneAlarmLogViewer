@@ -40,7 +40,7 @@ namespace import_danych
 
         void openConnection()
         {
-            string connectionString = "Data Source=(local);Initial Catalog=HurtowniaDanych;Integrated Security=True";
+            string connectionString = "Server=DESKTOP-ATBN0QT\\SQLEXPRESS;Database=HurtowniaDanych;Trusted_Connection=True;";
             connection = new SqlConnection(connectionString);
             connection.Open();
         }
@@ -100,7 +100,14 @@ namespace import_danych
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
             dataListView.VirtualListSize = data[1].Count;
             allLinesListView.VirtualListSize = data[0].Count;
-            connection.Close();
+            new Thread(() =>
+            {
+                for (int i = 0; i < data[1].Count; ++i)
+                {
+                    fileProcessing.saveToDatabase(data[1][i], data[2][i], data[3][i], data[4][i], data[5][i], data[6][i], connection);
+                }
+                connection.Close();
+            }).Start();
         }
 
         private void fileDialogButton_Click(object sender, EventArgs e)
