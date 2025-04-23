@@ -40,7 +40,7 @@ namespace import_danych
 
         void openConnection()
         {
-            string connectionString = "Server=DESKTOP-ATBN0QT\\SQLEXPRESS;Database=HurtowniaDanych;Trusted_Connection=True;";
+            string connectionString = "Server=localhost\\SQLEXPRESS;Database=HurtowniaDanych;Trusted_Connection=True;";
             connection = new SqlConnection(connectionString);
             connection.Open();
         }
