@@ -237,8 +237,8 @@ namespace import_danych
         private void openCatalogButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
-            //folderBrowserDialog.SelectedPath = @"C:\Users\Luk\source\repos\import_danych\ZoneAlarmLogViewer\dane\db";
+            //folderBrowserDialog.SelectedPath = @"D:\rizzai\ZoneAlarmLogViewer\ZoneAlarmLogViewer\dane";
+            folderBrowserDialog.SelectedPath = @"C:\Users\Luk\source\repos\import_danych\ZoneAlarmLogViewer\dane\db";
             if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string folderName = folderBrowserDialog.SelectedPath;

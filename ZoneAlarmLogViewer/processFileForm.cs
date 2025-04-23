@@ -39,7 +39,7 @@ namespace import_danych
         }
         void openConnection()
         {
-            string connectionString = "Data Source=(local);Initial Catalog=HurtowniaDanych;Integrated Security=True";
+            string connectionString = "Server=DESKTOP-ATBN0QT\\SQLEXPRESS;Database=HurtowniaDanych;Trusted_Connection=True;";
             connection = new SqlConnection(connectionString);
             connection.Open();
         }
@@ -137,7 +137,7 @@ namespace import_danych
         {
             if (e.Cancelled)
             {
-                MessageBox.Show("anulowano");
+                MessageBox.Show("Anulowano");
                 return;
             }
             var (data, processedLinesCount) = ((List<string>[], int))e.Result;
@@ -147,18 +147,21 @@ namespace import_danych
             dataListView.VirtualListSize = data[1].Count;
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
             startButton.Enabled = true;
+            openConnection();
             if (connection.State != ConnectionState.Executing)
             {
-                Thread t = new Thread(() =>
+                new Thread(() =>
                 {
-                    openConnection();
                     for (int i = 0; i < data[1].Count; ++i)
                     {
                         fileProcessing.saveToDatabase(data[1][i], data[2][i], data[3][i], data[4][i], data[5][i], data[6][i], connection);
                     }
                     connection.Close();
-                });
-                t.Start();
+                }).Start();
+            }
+            else
+            {
+                MessageBox.Show("Baza danych zajęta");
             }
         }
 

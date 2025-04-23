@@ -56,15 +56,15 @@ namespace import_danych
             return result;
         }
 
-        static public void saveToDatabase(string type, string date, string time, string inAddr,
+        static public int saveToDatabase(string type, string date, string time, string inAddr,
             string outAddr, string protocol, SqlConnection connection)
         {
             if (connection == null)
             {
-                return;
+                return 0;
             }
-            string commandText = "Insert into HurtowniaDanych.dbo.ZoneAlarmLog(Zdarzenie, DataCzas, Source, Destination, Transport)" +
-                "values('" + type + "','" + date + " " + time.Substring(0, time.Length - 4) + "','" + inAddr + "','" + outAddr + "','" + protocol + "');";
+            string commandText = "Insert into HurtowniaDanych.dbo.ZoneAlarmLog(Zdarzenie, Data, Czas, Source, Destination, Transport)" +
+                "values('" + type + "','" + date + "','" + time.Substring(0, time.Length - 4) + "','" + inAddr + "','" + outAddr + "','" + protocol + "');";
             SqlCommand command = new SqlCommand(commandText, connection);
             try
             {
@@ -73,7 +73,9 @@ namespace import_danych
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                return 0;
             }
+            return 1;
         }
 
         static public(List<string>[] data, int processedLinesCount) processFile(string fileName)
@@ -147,38 +149,57 @@ namespace import_danych
                 result[i] = new List<string>();
             }
 
-            int numOfThreads = 6;
-            Thread[] threads = new Thread[numOfThreads];
-            List<string>[][] tempResults = new List<string>[numOfThreads][];
-            int[] processedLinesCounts = new int[numOfThreads];
-
-            int step = (int)Math.Ceiling((double)(files.Length) / numOfThreads);
-
-            for (int i = 0; i < numOfThreads - 1; ++i)
-            {
-                int threadIndex = i; // C# lambda capture
-                threads[threadIndex] = new Thread(() => processFolderThread(ref files, step * threadIndex,
-                    step * (threadIndex + 1), ref tempResults[threadIndex], ref processedLinesCounts[threadIndex]));
-                threads[threadIndex].Start();
-            }
-            threads[numOfThreads - 1] = new Thread(() =>
-                processFolderThread(ref files, (numOfThreads - 1) * step, files.Length,
-                ref tempResults[numOfThreads - 1], ref processedLinesCounts[numOfThreads - 1]));
-            threads[numOfThreads - 1].Start();
-
             int processedLinesCount = 0;
-            for (int i = 0; i < numOfThreads; ++i)
+            if (files.Length < 200)
             {
-                threads[i].Join();
-            }
-            for (int i = 0; i < numOfThreads; ++i)
-            {
-                for (int dataCol = 0; dataCol < result.Length; ++dataCol)
+                for (int i = 0; i < files.Length; ++i)
                 {
-                    for (int j = 0; j < tempResults[i][dataCol].Count; ++j)
-                        result[dataCol].Add(tempResults[i][dataCol][j]);
+                    if (!files[i].EndsWith(".txt"))
+                        continue;
+                    (List<string>[] processingResult, int processedLinesOfFileCount) = processFile(files[i]);
+                    processedLinesCount += processedLinesOfFileCount;
+                    for (int j = 0; j < result.Length; ++j)
+                    {
+                        for (int k = 0; k < processingResult[j].Count; ++k)
+                        {
+                            result[j].Add(processingResult[j][k]);
+                        }
+                    }
                 }
-                processedLinesCount += processedLinesCounts[i];
+            }
+            else
+            {
+                int numOfThreads = 6;
+                Thread[] threads = new Thread[numOfThreads];
+                List<string>[][] tempResults = new List<string>[numOfThreads][];
+                int[] processedLinesCounts = new int[numOfThreads];
+
+                int step = (int)Math.Ceiling((double)(files.Length) / numOfThreads);
+
+                for (int i = 0; i < numOfThreads - 1; ++i)
+                {
+                    int threadIndex = i; // C# lambda capture
+                    threads[threadIndex] = new Thread(() => processFolderThread(ref files, step * threadIndex,
+                        step * (threadIndex + 1), ref tempResults[threadIndex], ref processedLinesCounts[threadIndex]));
+                    threads[threadIndex].Start();
+                }
+                threads[numOfThreads - 1] = new Thread(() =>
+                    processFolderThread(ref files, (numOfThreads - 1) * step, files.Length,
+                    ref tempResults[numOfThreads - 1], ref processedLinesCounts[numOfThreads - 1]));
+                threads[numOfThreads - 1].Start();
+                for (int i = 0; i < numOfThreads; ++i)
+                {
+                    threads[i].Join();
+                }
+                for (int i = 0; i < numOfThreads; ++i)
+                {
+                    for (int dataCol = 0; dataCol < result.Length; ++dataCol)
+                    {
+                        for (int j = 0; j < tempResults[i][dataCol].Count; ++j)
+                            result[dataCol].Add(tempResults[i][dataCol][j]);
+                    }
+                    processedLinesCount += processedLinesCounts[i];
+                }
             }
             return (result, processedLinesCount);
         }
