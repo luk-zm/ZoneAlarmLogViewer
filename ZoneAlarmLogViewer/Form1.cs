@@ -30,18 +30,12 @@ namespace import_danych
 
             dataListView.VirtualListSize = 0;
             dataListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(listView_RetrieveVirtualItem);
-            //listView.CacheVirtualItems += new CacheVirtualItemsEventHandler(listView_CacheVirtualItems);
 
             allLinesListView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(fullFileListView_RetrieveVirtualItem);
-            //fullFileListView.CacheVirtualItems += new CacheVirtualItemsEventHandler(fullFileListView_CacheVirtualItems);
             data = new List<string>[8];
         }
 
         public List<string>[] data;
-        public ListViewItem[] myCache;
-        private CacheVirtualItemsEventArgs lastCacheArgsListView;
-        public CacheVirtualItemsEventArgs lastCacheArgsFullListView;
-        public int firstItem;
         SqlConnection connection;
 
         void openConnection()
@@ -53,138 +47,38 @@ namespace import_danych
 
         void listView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
         {
-            //Caching is not required but improves performance on large sets.
-            //To leave out caching, don't connect the CacheVirtualItems event 
-            //and make sure myCache is null.
-
-            //check to see if the requested item is currently in the cache
-            if (myCache != null && e.ItemIndex >= firstItem && e.ItemIndex < firstItem + myCache.Length)
+            ListViewItem item;
+            if (data != null)
             {
-                //A cache hit, so get the ListViewItem from the cache instead of making a new one.
-                e.Item = myCache[e.ItemIndex - firstItem];
+                item = new ListViewItem(data[1][e.ItemIndex]);
+                item.SubItems.Add(data[2][e.ItemIndex]);
+                item.SubItems.Add(data[3][e.ItemIndex]);
+                item.SubItems.Add(data[4][e.ItemIndex]);
+                item.SubItems.Add(data[5][e.ItemIndex]);
+                item.SubItems.Add(data[6][e.ItemIndex]);
             }
             else
             {
-                //A cache miss, so create a new ListViewItem and pass it back.
-                ListViewItem item;
-                if (data != null)
-                {
-                    item = new ListViewItem(data[1][e.ItemIndex]);
-                    item.SubItems.Add(data[2][e.ItemIndex]);
-                    item.SubItems.Add(data[3][e.ItemIndex]);
-                    item.SubItems.Add(data[4][e.ItemIndex]);
-                    item.SubItems.Add(data[5][e.ItemIndex]);
-                    item.SubItems.Add(data[6][e.ItemIndex]);
-                }
-                else
-                {
-                    item = new ListViewItem("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                }
-                e.Item = item;
+                item = new ListViewItem("N/A");
+                item.SubItems.Add("N/A");
+                item.SubItems.Add("N/A");
+                item.SubItems.Add("N/A");
+                item.SubItems.Add("N/A");
+                item.SubItems.Add("N/A");
             }
+            e.Item = item;
         }
-
-        void listView_CacheVirtualItems(object sender, CacheVirtualItemsEventArgs e)
-        {
-            //We've gotten a request to refresh the cache.
-            //First check if it's really neccesary.
-            if (myCache != null && e.StartIndex >= firstItem && e.EndIndex <= firstItem + myCache.Length)
-            {
-                //If the newly requested cache is a subset of the old cache, 
-                //no need to rebuild everything, so do nothing.
-                return;
-            }
-
-            //Now we need to rebuild the cache.
-            firstItem = e.StartIndex;
-            int length = e.EndIndex - e.StartIndex + 1; //indexes are inclusive
-            myCache = new ListViewItem[length];
-
-            //Fill the cache with the appropriate ListViewItems.
-            for (int i = 0; i < length; i++)
-            {
-                ListViewItem item;
-                if (data != null)
-                {
-                    int targetIndex = e.StartIndex + i;
-                    item = new ListViewItem(data[1][targetIndex]);
-                    item.SubItems.Add(data[2][targetIndex]);
-                    item.SubItems.Add(data[3][targetIndex]);
-                    item.SubItems.Add(data[4][targetIndex]);
-                    item.SubItems.Add(data[5][targetIndex]);
-                    item.SubItems.Add(data[6][targetIndex]);
-                }
-                else
-                {
-                    item = new ListViewItem("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                    item.SubItems.Add("N/A");
-                }
-                myCache[i] = item;
-            }
-            lastCacheArgsListView = new CacheVirtualItemsEventArgs(e.StartIndex, e.EndIndex);
-        }
-
-        public ListViewItem[] fullFileViewCache;
-        public int fullFileFirstItem;
 
         void fullFileListView_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
         {
-            if (fullFileViewCache != null && e.ItemIndex >= fullFileFirstItem && e.ItemIndex < fullFileFirstItem + fullFileViewCache.Length)
+            if (data != null)
             {
-                e.Item = fullFileViewCache[e.ItemIndex - fullFileFirstItem];
+                e.Item = new ListViewItem(data[0][e.ItemIndex]);
             }
             else
             {
-                if (data != null)
-                {
-                    e.Item = new ListViewItem(data[0][e.ItemIndex]);
-                }
-                else
-                {
-                    e.Item = new ListViewItem("N/A");
-                }
+                e.Item = new ListViewItem("N/A");
             }
-        }
-
-        void fullFileListView_CacheVirtualItems(object sender, CacheVirtualItemsEventArgs e)
-        {
-            //We've gotten a request to refresh the cache.
-            //First check if it's really neccesary.
-            if (fullFileViewCache != null && e.StartIndex >= fullFileFirstItem && e.EndIndex <= fullFileFirstItem + fullFileViewCache.Length)
-            {
-                //If the newly requested cache is a subset of the old cache, 
-                //no need to rebuild everything, so do nothing.
-                return;
-            }
-
-            //Now we need to rebuild the cache.
-            fullFileFirstItem = e.StartIndex;
-            int length = e.EndIndex - e.StartIndex + 1; //indexes are inclusive
-            fullFileViewCache = new ListViewItem[length];
-
-            //Fill the cache with the appropriate ListViewItems.
-            for (int i = 0; i < length; i++)
-            {
-                if (data != null)
-                {
-                    int targetIndex = e.StartIndex + i;
-                    fullFileViewCache[i] = new ListViewItem(data[0][targetIndex]);
-                }
-                else
-                {
-                    fullFileViewCache[i] = new ListViewItem("N/A");
-                }
-            }
-            lastCacheArgsFullListView = new CacheVirtualItemsEventArgs(e.StartIndex, e.EndIndex);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -206,13 +100,6 @@ namespace import_danych
             processedLinesCountLabel.Text = "Przetworzone linijki: " + processedLinesCount;
             dataListView.VirtualListSize = data[1].Count;
             allLinesListView.VirtualListSize = data[0].Count;
-            /*
-            if (lastCacheArgsFullListView != null && lastCacheArgsListView != null)
-            {
-                fullFileListView_CacheVirtualItems(this, lastCacheArgsFullListView);
-                listView_CacheVirtualItems(this, lastCacheArgsListView);
-            }
-            */
             connection.Close();
         }
 
